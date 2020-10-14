@@ -31,5 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance'
   spec.add_development_dependency 'rubocop-rspec'
 
-  spec.add_dependency 'pushover', '>= 3.0.0'
+  spec.add_dependency 'pagerduty', '>= 3.0.0'
 end
