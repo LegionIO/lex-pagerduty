@@ -1,4 +1,5 @@
 require 'legion/extensions/pagerduty/version'
+require 'pagerduty'
 
 module Legion
   module Extensions
