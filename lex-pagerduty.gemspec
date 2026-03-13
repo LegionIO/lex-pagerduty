@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'legion/extensions/pagerduty/version'
+require_relative 'lib/legion/extensions/pagerduty/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'lex-pagerduty'
@@ -10,9 +8,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Esity']
   spec.email         = ['matthewdiverson@gmail.com']
 
-  spec.summary       = 'LEX::Pagerduty'
-  spec.description   = 'LEX::Pagerduty'
+  spec.summary       = 'LEX Pagerduty'
+  spec.description   = 'Connects LegionIO to PagerDuty'
   spec.homepage      = 'https://github.com/LegionIO/lex-pagerduty'
+  spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.4'
 
   spec.metadata['homepage_uri'] = spec.homepage
@@ -22,15 +21,10 @@ Gem::Specification.new do |spec|
   spec.metadata['bug_tracker_uri'] = 'https://github.com/LegionIO/lex-pagerduty/issues'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
+  spec.files = Dir.chdir(File.expand_path(__dir__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'codecov'
-  spec.add_development_dependency 'legionio'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rspec_junit_formatter'
-  spec.add_development_dependency 'rubocop'
-
-  spec.add_dependency 'pagerduty'
+  spec.add_dependency 'faraday', '>= 2.0'
 end

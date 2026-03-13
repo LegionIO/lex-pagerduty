@@ -5,31 +5,46 @@
 
 ## Purpose
 
-Legion Extension that connects LegionIO to PagerDuty. Provides runners for managing incidents, schedules, escalation policies, on-calls, notifications, log entries, maintenance windows, priorities, and subscriptions.
+Legion Extension that connects LegionIO to PagerDuty via the REST API v2. Provides runners for managing incidents, services, escalation policies, schedules, users, teams, on-calls, priorities, maintenance windows, log entries, notifications, tags, abilities, and vendors.
 
-**License**: MIT (assumed)
+**GitHub**: https://github.com/LegionIO/lex-pagerduty
+**License**: MIT
 
 ## Architecture
 
 ```
 Legion::Extensions::Pagerduty
-└── Runners/
-    ├── Incident           # Incident management
-    ├── Schedules          # Schedule queries
-    ├── EscalationPolicies # Escalation policy management
-    ├── OnCalls            # On-call schedule queries
-    ├── Notifications      # Notification management
-    ├── LogEntries         # Log entry queries
-    ├── MaintenanceWindows # Maintenance window management
-    ├── Priorities         # Priority management
-    └── Subscriptions      # Subscription management
+├── Runners/
+│   ├── Incidents            # Incident lifecycle (create, ack, resolve, merge, snooze, notes, alerts)
+│   ├── Services             # Service CRUD + integrations
+│   ├── EscalationPolicies   # Escalation policy CRUD
+│   ├── Schedules            # Schedule CRUD + overrides + on-call users
+│   ├── Users                # User CRUD + contact methods + notification rules
+│   ├── Teams                # Team CRUD + member management
+│   ├── OnCalls              # On-call listing with schedule/policy filters
+│   ├── Priorities           # Priority listing
+│   ├── MaintenanceWindows   # Maintenance window CRUD
+│   ├── LogEntries           # Log entry queries
+│   ├── Notifications        # Notification listing
+│   ├── Tags                 # Tag CRUD + entity assignment
+│   ├── Abilities            # Account ability queries
+│   └── Vendors              # Vendor listing
+├── Helpers/
+│   └── Client               # Faraday connection builder (PagerDuty REST API v2)
+└── Client                   # Standalone client class (includes all runners)
 ```
 
 ## Dependencies
 
 | Gem | Purpose |
 |-----|---------|
-| `pagerduty` | PagerDuty Ruby client |
+| `faraday` | HTTP client for PagerDuty REST API v2 |
+
+## API Authentication
+
+PagerDuty uses token-based auth: `Authorization: Token token=YOUR_TOKEN`
+
+Mutating incident operations require a `From` header with the user's email address.
 
 ## Testing
 

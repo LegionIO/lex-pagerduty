@@ -6,14 +6,17 @@ module Legion
   module Extensions
     module Pagerduty
       module Runners
-        module Notifications
+        module Abilities
           include Legion::Extensions::Pagerduty::Helpers::Client
 
-          def list_notifications(since_time:, until_time:, filter: nil, per_page: 25, page: 0, **)
-            params = { since: since_time, until: until_time, limit: per_page, offset: page * per_page }
-            params[:filter] = filter if filter
-            response = connection(**).get('/notifications', params)
+          def list_abilities(**)
+            response = connection(**).get('/abilities')
             { result: response.body }
+          end
+
+          def test_ability(ability:, **)
+            response = connection(**).get("/abilities/#{ability}")
+            { result: response.status == 204 }
           end
 
           include Legion::Extensions::Helpers::Lex if Legion::Extensions.const_defined?(:Helpers) &&

@@ -6,13 +6,17 @@ module Legion
   module Extensions
     module Pagerduty
       module Runners
-        module Notifications
+        module Vendors
           include Legion::Extensions::Pagerduty::Helpers::Client
 
-          def list_notifications(since_time:, until_time:, filter: nil, per_page: 25, page: 0, **)
-            params = { since: since_time, until: until_time, limit: per_page, offset: page * per_page }
-            params[:filter] = filter if filter
-            response = connection(**).get('/notifications', params)
+          def list_vendors(per_page: 25, page: 0, **)
+            params = { limit: per_page, offset: page * per_page }
+            response = connection(**).get('/vendors', params)
+            { result: response.body }
+          end
+
+          def get_vendor(id:, **)
+            response = connection(**).get("/vendors/#{id}")
             { result: response.body }
           end
 
