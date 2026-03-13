@@ -1,7 +1,8 @@
 # lex-pagerduty: PagerDuty Integration for LegionIO
 
 **Repository Level 3 Documentation**
-- **Category**: `/Users/miverso2/rubymine/legion/extensions/CLAUDE.md`
+- **Parent**: `/Users/miverso2/rubymine/legion/extensions-other/CLAUDE.md`
+- **Grandparent**: `/Users/miverso2/rubymine/legion/CLAUDE.md`
 
 ## Purpose
 
@@ -34,11 +35,14 @@ Legion::Extensions::Pagerduty
 └── Client                   # Standalone client class (includes all runners)
 ```
 
-## Dependencies
+## Key Files
 
-| Gem | Purpose |
-|-----|---------|
-| `faraday` | HTTP client for PagerDuty REST API v2 |
+| Path | Purpose |
+|------|---------|
+| `lib/legion/extensions/pagerduty.rb` | Entry point, loads all runners |
+| `lib/legion/extensions/pagerduty/client.rb` | Standalone client (initialize with token:) |
+| `lib/legion/extensions/pagerduty/helpers/client.rb` | Faraday builder for PagerDuty API |
+| `lib/legion/extensions/pagerduty/runners/` | All runners |
 
 ## API Authentication
 
@@ -46,7 +50,13 @@ PagerDuty uses token-based auth: `Authorization: Token token=YOUR_TOKEN`
 
 Mutating incident operations require a `From` header with the user's email address.
 
-## Testing
+## Dependencies
+
+| Gem | Purpose |
+|-----|---------|
+| `faraday` (>= 2.0) | HTTP client for PagerDuty REST API v2 |
+
+## Development
 
 ```bash
 bundle install

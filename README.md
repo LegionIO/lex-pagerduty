@@ -8,6 +8,12 @@ PagerDuty integration for [LegionIO](https://github.com/LegionIO/LegionIO). Mana
 gem install lex-pagerduty
 ```
 
+Or add to your Gemfile:
+
+```ruby
+gem 'lex-pagerduty'
+```
+
 ## Standalone Usage
 
 ```ruby
@@ -34,22 +40,24 @@ client.list_users(query: 'john')
 client.add_member(team_id: 'PTEAM1', user_id: 'PUSER1')
 ```
 
-## Functions
+## Runners
 
-- **Incidents** - List, create, get, update, merge, snooze, notes, alerts
-- **Services** - List, create, get, update, delete, integrations
-- **EscalationPolicies** - List, create, get, update, delete
-- **Schedules** - List, create, get, update, delete, overrides, on-call users
-- **Users** - List, create, get, update, delete, contact methods, notification rules
-- **Teams** - List, create, get, update, delete, add/remove members
-- **OnCalls** - List on-call entries
-- **Priorities** - List priorities
-- **MaintenanceWindows** - List, create, get, update, delete
-- **LogEntries** - List, get
-- **Notifications** - List
-- **Tags** - List, create, get, delete, assign/remove from entities
-- **Abilities** - List, test
-- **Vendors** - List, get
+| Runner | Operations |
+|--------|-----------|
+| Incidents | List, create, get, update, merge, snooze, notes, alerts |
+| Services | List, create, get, update, delete, integrations |
+| EscalationPolicies | List, create, get, update, delete |
+| Schedules | List, create, get, update, delete, overrides, on-call users |
+| Users | List, create, get, update, delete, contact methods, notification rules |
+| Teams | List, create, get, update, delete, add/remove members |
+| OnCalls | List on-call entries |
+| Priorities | List priorities |
+| MaintenanceWindows | List, create, get, update, delete |
+| LogEntries | List, get |
+| Notifications | List |
+| Tags | List, create, get, delete, assign/remove from entities |
+| Abilities | List, test |
+| Vendors | List, get |
 
 ## Requirements
 
