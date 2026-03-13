@@ -1,10 +1,18 @@
-module Legion::Extensions::Pagerduty::Runners
-  module OnCalls
-    include Legion::Extensions::Pagerduty::Helpers::Client
-    include Legion::Extensions::Helpers::Lex
+# frozen_string_literal: true
 
-    # def list(**opts)
-    #   # https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1oncalls/get
-    # end
+module Legion
+  module Extensions
+    module Pagerduty
+      module Runners
+        module OnCalls
+          include Legion::Extensions::Pagerduty::Helpers::Client
+          include Legion::Extensions::Helpers::Lex
+
+          # def list(**opts)
+          #   # https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1oncalls/get
+          # end
+        end
+      end
+    end
   end
 end
