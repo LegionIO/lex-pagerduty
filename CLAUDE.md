@@ -10,6 +10,7 @@ Legion Extension that connects LegionIO to PagerDuty via the REST API v2. Provid
 
 **GitHub**: https://github.com/LegionIO/lex-pagerduty
 **License**: MIT
+**Version**: 0.2.0
 
 ## Architecture
 
@@ -57,6 +58,8 @@ Mutating incident operations require a `From` header with the user's email addre
 | `faraday` (>= 2.0) | HTTP client for PagerDuty REST API v2 |
 
 ## Development
+
+37 specs total.
 
 ```bash
 bundle install
