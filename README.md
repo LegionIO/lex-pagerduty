@@ -62,8 +62,8 @@ client.add_member(team_id: 'PTEAM1', user_id: 'PUSER1')
 ## Requirements
 
 - Ruby >= 3.4
-- [LegionIO](https://github.com/LegionIO/LegionIO) framework
 - PagerDuty account with API token
+- [LegionIO](https://github.com/LegionIO/LegionIO) framework (optional — standalone Client works without it)
 
 ## License
 
