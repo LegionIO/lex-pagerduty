@@ -10,7 +10,7 @@ Legion Extension that connects LegionIO to PagerDuty via the REST API v2. Provid
 
 **GitHub**: https://github.com/LegionIO/lex-pagerduty
 **License**: MIT
-**Version**: 0.2.0
+**Version**: 0.2.1
 
 ## Architecture
 
